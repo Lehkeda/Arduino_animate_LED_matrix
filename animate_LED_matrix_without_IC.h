@@ -4,17 +4,28 @@
 
 class Animate_LED_matrix_without_IC{
   public:
-    Animate_LED_matrix_without_IC(int local_rows[9],int local_cols[9]);
+    Animate_LED_matrix_without_IC(int local_rows[9],int local_cols[9],String);
     int global_delay;
     void loop_animation();
     void count_original_symbol_lenth();
+    int original_text_to_display_lenth;
+    String user_msg;
     
   private:
     int rows[9];
     int cols[9];
+//    String user_msg;
     int num_of_rows;
     int num_of_cols;
-    int original_text_to_display_lenth;
+    char letter_to_print[8][8];
+    void copy_letter(char letter_to_copy[8][8]);
+    void get_letter(String);
+    void get_custom_letter(String);
+    String user_current_letter;
+    String user_last_letter;
+    void parse_msg(int);
+    int index_of_current_letter;
+    //int original_text_to_display_lenth;
     bool is_finished;
     void turn_on_everything();
     void turn_off_everything();
