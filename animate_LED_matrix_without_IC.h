@@ -10,14 +10,15 @@ class Animate_LED_matrix_without_IC{
     void count_original_symbol_lenth();
     int original_text_to_display_lenth;
     String user_msg;
-    
+
   private:
     int rows[9];
     int cols[9];
-//    String user_msg;
     int num_of_rows;
     int num_of_cols;
     char letter_to_print[8][8];
+    char next_letter_to_print[8][8];
+    bool get_next_letter=true;
     void copy_letter(char letter_to_copy[8][8]);
     void get_letter(String);
     void get_custom_letter(String);
@@ -31,7 +32,7 @@ class Animate_LED_matrix_without_IC{
     void turn_off_everything();
     char shifted_symbol[8][8];
     char copy_of_shifted_symbol[8][8];
-    char current_base=0;
+    int current_base=0;
     int current_letter=0;
     bool is_there_next_letter=true;
   
