@@ -29,6 +29,4 @@ extern char letter_d[8][8];
 
 extern char heart[8][8];
 
-extern char (*original_symbol[])[8];
-
 #endif //USER_STRING_H                    

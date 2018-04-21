@@ -30,29 +30,6 @@ Animate_LED_matrix_without_IC::Animate_LED_matrix_without_IC(int local_rows[9],i
 
   this->user_msg=user_msg;
   
-//count the length of user string
-  this->count_original_symbol_lenth();
-
-}
-
-void Animate_LED_matrix_without_IC::count_original_symbol_lenth(){
-  bool is_symbol=false;
-  for (int i=0; i< this->user_msg.length(); ++i){
-    String current_user_msg_letter=String(this->user_msg.charAt(i));
-    if(is_symbol){
-      if(current_user_msg_letter==";"){
-        is_symbol=false;
-        ++this->original_text_to_display_lenth;
-      }
-    }else{
-    //here it checks if it's start of custom character 
-      if(current_user_msg_letter== "&" ){
-        is_symbol=true;
-      }else{
-        ++this->original_text_to_display_lenth;
-      }
-    }
-  }
 }
 
 void Animate_LED_matrix_without_IC::turn_off_everything(){
@@ -106,6 +83,7 @@ void Animate_LED_matrix_without_IC::parse_msg(int index){
       if(local_current_letter== "&" ){
         is_symbol=true;
         ++index;
+        if(!this->get_next_letter) ++this->current_letter;
       }else{
         if(this->get_next_letter){
           this->get_letter(local_current_letter);
@@ -123,6 +101,7 @@ void Animate_LED_matrix_without_IC::parse_msg(int index){
         if(local_current_letter!=";"){
           symbol+=local_current_letter;
           ++index;
+          if(!this->get_next_letter) ++this->current_letter;
         }else{
           is_symbol=false;
           if(this->get_next_letter){
@@ -293,23 +272,17 @@ void Animate_LED_matrix_without_IC::reset_everything(){
   }
   if(this->current_base==8){
     this->current_base=0;
-    if(this->current_letter+1 < this->original_text_to_display_lenth){
-      ++this->current_letter;
-    }else if(this->current_letter+1 >=this->original_text_to_display_lenth){
+    if(this->current_letter+1 < this->user_msg.length()){
+      this->current_letter+=1;
+    }else if(this->current_letter+1 >= this->user_msg.length()){
       this->current_letter=0;
     }
-    if(this->current_letter+2 <= this->original_text_to_display_lenth){
+    if(this->current_letter+2 <= this->user_msg.length()){
       this->is_there_next_letter=true;
-    }else if(this->current_letter+2 > this->original_text_to_display_lenth){
+    }else if(this->current_letter+2 > this->user_msg.length()){
       this->is_there_next_letter=false;
     }
-
-    //get current and next letter
-    this->parse_msg(this->current_letter);
-    this->get_next_letter=true;
-    this->parse_msg((this->is_there_next_letter? this->current_letter+1 : 0));
-    this->get_next_letter=false;
-  }
+  }  
 }
 
 void Animate_LED_matrix_without_IC::loop_animation() {
@@ -318,12 +291,16 @@ void Animate_LED_matrix_without_IC::loop_animation() {
 #endif
 
 //this get first letter of the text once to start animating the text
-
-  this->parse_msg(this->current_letter);
-  this->get_next_letter=true;
-  this->parse_msg((this->is_there_next_letter? this->current_letter+1 : 0));
-  this->get_next_letter=false;
-
+  if(this->current_letter == this->user_msg.length()-1){
+    this->get_next_letter=true;
+    this->parse_msg(0);
+    this->get_next_letter=false;
+  }else if(this->current_letter < this->user_msg.length()-1){
+    this->parse_msg(this->current_letter);
+    this->get_next_letter=true;
+    this->parse_msg((this->is_there_next_letter? this->current_letter+1 : 0));
+    this->get_next_letter=false;
+  }
 
 //repeat each animation n of times 
 // increase n to make the animation slower
