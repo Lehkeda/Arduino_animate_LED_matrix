@@ -1,10 +1,10 @@
-#ifndef ANIMATE_LED_MATRIX_WITHOUT_IC
-#define ANIMATE_LED_MATRIX_WITHOUT_IC
+#ifndef ANIMATE_LED_MATRIX
+#define ANIMATE_LED_MATRIX
 #include <Arduino.h>
 
-class Animate_LED_matrix_without_IC{
+class Animate_LED_matrix{
   public:
-    Animate_LED_matrix_without_IC(int local_rows[9],int local_cols[9],String);
+    Animate_LED_matrix(int local_rows[9],int local_cols[9],String);
     int global_delay;
     void loop_animation();
     String user_msg;
@@ -52,4 +52,4 @@ class Animate_LED_matrix_without_IC{
 
 };
 
-#endif //ANIMATE_LED_MATRIX_WITHOUT_IC
+#endif //Animate_LED_matrix

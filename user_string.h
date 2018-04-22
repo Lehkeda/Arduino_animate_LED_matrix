@@ -1,9 +1,11 @@
 #ifndef USER_STRING_H
 #define USER_STRING_H
 
-extern char letter_h[8][8];
-
 extern char letter_a[8][8];
+
+extern char letter_b[8][8];
+
+extern char letter_h[8][8];
 
 extern char letter_p[8][8];
 
@@ -29,4 +31,5 @@ extern char letter_d[8][8];
 
 extern char heart[8][8];
 
+extern char smiley[8][8];
 #endif //USER_STRING_H                    

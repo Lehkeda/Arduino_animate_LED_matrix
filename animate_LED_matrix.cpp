@@ -1,8 +1,8 @@
-#include "Animate_LED_matrix_without_IC.h"
+#include "Animate_LED_matrix.h"
 #include "user_string.h"
 //#define DEBUG
 
-Animate_LED_matrix_without_IC::Animate_LED_matrix_without_IC(int local_rows[9],int local_cols[9],String user_msg){
+Animate_LED_matrix::Animate_LED_matrix(int local_rows[9],int local_cols[9],String user_msg){
 //#ifdef DEBUG
   Serial.begin(9600);
 //#endif  
@@ -32,7 +32,7 @@ Animate_LED_matrix_without_IC::Animate_LED_matrix_without_IC(int local_rows[9],i
   
 }
 
-void Animate_LED_matrix_without_IC::turn_off_everything(){
+void Animate_LED_matrix::turn_off_everything(){
   for(int i=0; rows[i]; ++i){
     digitalWrite(rows[i],HIGH);
     }
@@ -41,7 +41,7 @@ void Animate_LED_matrix_without_IC::turn_off_everything(){
     }    
  }
   
-void Animate_LED_matrix_without_IC::turn_on_everything(){
+void Animate_LED_matrix::turn_on_everything(){
   for(int i=0; rows[i]; ++i){
     digitalWrite(rows[i],LOW);
   }
@@ -50,7 +50,7 @@ void Animate_LED_matrix_without_IC::turn_on_everything(){
   }    
 }
 
-void Animate_LED_matrix_without_IC::copy_letter(char letter_to_copy[8][8]){
+void Animate_LED_matrix::copy_letter(char letter_to_copy[8][8]){
   for(int i=0; i<this->num_of_cols; ++i){
     for(int x=0; x<this->num_of_rows; ++x){
       if(this->get_next_letter==true){
@@ -62,18 +62,20 @@ void Animate_LED_matrix_without_IC::copy_letter(char letter_to_copy[8][8]){
   }  
 }
 
-void Animate_LED_matrix_without_IC::get_letter(String letter_to_get){
+void Animate_LED_matrix::get_letter(String letter_to_get){
     if(letter_to_get=="a"){this->copy_letter(letter_a);}
+    if(letter_to_get=="b"){this->copy_letter(letter_b);}
     if(letter_to_get=="p"){this->copy_letter(letter_p);}
     if(letter_to_get=="y"){this->copy_letter(letter_y);}
     if(letter_to_get=="h"){this->copy_letter(letter_h);}
 }
 
-void Animate_LED_matrix_without_IC::get_custom_letter(String letter_to_get){
+void Animate_LED_matrix::get_custom_letter(String letter_to_get){
     if(letter_to_get=="heart"){this->copy_letter(heart);}
+    if(letter_to_get=="smiley"){this->copy_letter(smiley);}
 }
 
-void Animate_LED_matrix_without_IC::parse_msg(int index){
+void Animate_LED_matrix::parse_msg(int index){
   String local_current_letter;
   bool is_symbol=false;
   String symbol;
@@ -118,7 +120,7 @@ void Animate_LED_matrix_without_IC::parse_msg(int index){
   }
 }
 
-void Animate_LED_matrix_without_IC::shift_original_symbol(){
+void Animate_LED_matrix::shift_original_symbol(){
   int start_point=this->current_base;
   int current_col_of_current_letter=this->current_base;
   //copy the same column to all rows 
@@ -135,7 +137,7 @@ void Animate_LED_matrix_without_IC::shift_original_symbol(){
   } // end column loop
 }  
   
-void Animate_LED_matrix_without_IC::make_copy_of_shifted_symbol(){
+void Animate_LED_matrix::make_copy_of_shifted_symbol(){
   for(int i=0; i<this->num_of_cols; ++i){
     for(int x=0; x<this->num_of_rows; ++x){
       this->copy_of_shifted_symbol[x][i]=this->shifted_symbol[x][i];
@@ -143,7 +145,7 @@ void Animate_LED_matrix_without_IC::make_copy_of_shifted_symbol(){
   }
 }
   
-void Animate_LED_matrix_without_IC::check_cols_active_in_all(){
+void Animate_LED_matrix::check_cols_active_in_all(){
   bool is_active=false;
   for(int i=0; i<this->num_of_cols; ++i){
     for(int x=0; x<this->num_of_rows; ++x){
@@ -167,7 +169,7 @@ void Animate_LED_matrix_without_IC::check_cols_active_in_all(){
   }
 }
   
-void Animate_LED_matrix_without_IC::turn_on_cols_active_in_all(){
+void Animate_LED_matrix::turn_on_cols_active_in_all(){
   this->check_cols_active_in_all();
   for(int i=0; rows[i]; ++i){
     digitalWrite(rows[i],LOW);
@@ -184,7 +186,7 @@ void Animate_LED_matrix_without_IC::turn_on_cols_active_in_all(){
   delay(this->global_delay);
 }
 
-void Animate_LED_matrix_without_IC::check_cols_have_2_dots_turned_on_on_seris(){
+void Animate_LED_matrix::check_cols_have_2_dots_turned_on_on_seris(){
   int num_of_dots_active=0;
   for(int i=0; i<this->num_of_cols; ++i){
     for(int x=0; x<this->num_of_rows; ++x){
@@ -203,7 +205,7 @@ void Animate_LED_matrix_without_IC::check_cols_have_2_dots_turned_on_on_seris(){
 }
   
   
-void Animate_LED_matrix_without_IC::turn_on_cols_have_2_dots_turned_on_on_seris(){
+void Animate_LED_matrix::turn_on_cols_have_2_dots_turned_on_on_seris(){
   this->check_cols_have_2_dots_turned_on_on_seris();
 
   for(int i=0; i<8; ++i){
@@ -228,7 +230,7 @@ void Animate_LED_matrix_without_IC::turn_on_cols_have_2_dots_turned_on_on_seris(
   }
 }
   
-void Animate_LED_matrix_without_IC::turn_on_cols_have_sperated_dots_turned_on(){
+void Animate_LED_matrix::turn_on_cols_have_sperated_dots_turned_on(){
   for(int i=0; cols[i]; ++i){
     for(int x=0; rows[x]; ++x){
       if(this->copy_of_shifted_symbol[x][i]){
@@ -242,7 +244,7 @@ void Animate_LED_matrix_without_IC::turn_on_cols_have_sperated_dots_turned_on(){
 }
   
   
-void Animate_LED_matrix_without_IC::start_animation(){
+void Animate_LED_matrix::start_animation(){
   this->shift_original_symbol();
   this->make_copy_of_shifted_symbol();
   
@@ -265,7 +267,7 @@ void Animate_LED_matrix_without_IC::start_animation(){
   this->turn_on_cols_have_sperated_dots_turned_on();
 }
   
-void Animate_LED_matrix_without_IC::reset_everything(){
+void Animate_LED_matrix::reset_everything(){
   for(int i=0; i<8; ++i){
     this->which_col_active_in_all[i]=0;
     this->which_col_have_2_dots_turned_on_on_seris[i]=0;
@@ -285,7 +287,7 @@ void Animate_LED_matrix_without_IC::reset_everything(){
   }  
 }
 
-void Animate_LED_matrix_without_IC::loop_animation() {
+void Animate_LED_matrix::loop_animation() {
 #ifdef DEBUG
   Serial.println("start animation");
 #endif
@@ -295,6 +297,8 @@ void Animate_LED_matrix_without_IC::loop_animation() {
     this->get_next_letter=true;
     this->parse_msg(0);
     this->get_next_letter=false;
+    //this->current_letter=0;
+    //this->current_base=0;
   }else if(this->current_letter < this->user_msg.length()-1){
     this->parse_msg(this->current_letter);
     this->get_next_letter=true;
