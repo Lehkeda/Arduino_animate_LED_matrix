@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Character generator</title>
+	<link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+	<style type="text/css">
+		.LED_dot{
+			height: 25px;
+			width: 25px;
+			margin: 2px 1px;
+		}
+
+		.LEDs_matrix{
+			width: 270px;
+			min-width: 270px;
+		}
+		.site_title{
+			border-bottom: 2px solid #BDBDBD;
+		}
+	</style>
+
+</head>
+<body class="bg-info">
+	<div class="container bg-light rounded ">
+		<div class="text-center mb-3">
+			<span class="site_title display-4 font-weight-bold">Letters generator for LED matrix<span>
+		</div>
+		<div class="row  d-flex align-items-center" style="">
+			<div class="col-md-5 col-lg-4 col-sm-12">
+				<div class="row"> <!-- LED_matrix row -->
+					<div class="col d-flex justify-content-center">
+						<div class="bg-dark LEDs_matrix rounded text-center mx-2 py-2 px-2 mb-4" >
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,1)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,1)" class="LED_dot">
+							</div> <!-- 1st row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,2)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,2)" class="LED_dot">
+							</div> <!-- 2nd row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,3)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,3)" class="LED_dot">
+							</div> <!-- 3rd row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,4)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,4)" class="LED_dot">
+							</div> <!-- 4th row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,5)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,5)" class="LED_dot">
+							</div> <!-- 5th row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,6)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,6)" class="LED_dot">
+							</div> <!-- 6th row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,7)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,7)" class="LED_dot">
+							</div> <!-- 7th row -->
+							<div style="">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',1,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',2,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',3,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',4,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',5,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',6,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',7,8)" class="LED_dot">
+								<img src="./src/img/led_off.svg" onclick="change_dot_img(this,'off',8,8)" class="LED_dot">
+							</div> <!-- 8th row -->
+						</div>						
+					</div>		
+				</div> <!-- end LED_matrix row-->
+				<div class="row mb-2"> <!-- reset and invert row -->
+					<div class="col">
+						<form>
+							<div class="form-group d-flex justify-content-between">
+								<button form="letter_generator_form" class="btn btn-danger" onclick="reset_matrix()" > Reset matrix </button>
+								<button form="letter_generator_form" class="btn btn-success " onclick="invert_matrix()"> Invert matrix </button>
+							</div>
+						 </form>
+					 </div>
+				</div> <!-- end reset and invert row -->
+				<div class="row text-center justify-content-around"> <!-- copy and generate row -->
+					<div class="col">
+						<form id="letter_generator_form" onsubmit="return false">
+							<fieldset>
+								<div class="form-group form-inline d-flex justify-content-between">
+									<label class="mr-2" for="letter_name">Letter name </label>
+									<input class="form-control " id="letter_name" required="required"></input>
+								</div>
+								<div class="form-group d-flex justify-content-between">	
+									<button class="btn btn-info text-center" onclick="generate_letter()"> Generate letter </button>
+									<button type="button" class="btn btn-info text-center" onclick="copy_letter()"> Copy letter </button>
+								</div>
+								<div class="form-group justify-content-center">		
+									<button type="reset" class="btn btn-danger text-center btn-block" onclick="reset_matrix()"> Reset everything!</button>
+								</div>	
+							</fieldset>
+						</form>	
+					</div>
+				</div>	<!-- end copy and generate row -->
+			</div> <!-- col -->
+			<div class="col-md-7 col-lg-8 align-top">
+				<div class="row">
+					<div class="col">
+						<section class="mb-2">
+							<div class=""> 
+								<h1 class="">How to use</h1>
+								<ol> 
+									<li>Click on each dot to turn it on/off</li>
+									<li>Enter letter name</li>
+									<li>Click <em>generate</em> </li>
+									<li>Click <em>copy letter</em> to copy it to clipboard</li>
+								</ol>	
+							</div>
+
+						</section>
+						<section>
+							<textarea form="letter_generator_form" class="form-control form-control-md" id="output_result" rows="15"></textarea>
+						</section>
+					</div>
+				</div>
+
+			</div>	<!-- col -->
+		</div>	<!-- row -->
+	</div>	<!-- container -->
+
+	<script type="text/javascript">
+		var letter=[ [0,0,0,0,0,0,0,0],
+				 	 [0,0,0,0,0,0,0,0],
+					 [0,0,0,0,0,0,0,0],
+					 [0,0,0,0,0,0,0,0],
+					 [0,0,0,0,0,0,0,0],
+					 [0,0,0,0,0,0,0,0],
+					 [0,0,0,0,0,0,0,0],
+				 	 [0,0,0,0,0,0,0,0] ];
+
+		function change_dot_img(node,state,x,y){
+		 	if(state =="off"){
+		 		node.getAttributeNode("src").value="./src/img/led_on.svg";
+		 		node.getAttributeNode("onclick").value="change_dot_img(this,'on',"+x+","+y+")";
+		 		letter[y-1][x-1]=1;
+		 	}if(state =="on"){
+		 		node.getAttributeNode("src").value="./src/img/led_off.svg";
+		 		node.getAttributeNode("onclick").value="change_dot_img(this,'off',"+x+","+y+")";
+		 		letter[y-1][x-1]=0;
+		 	}			
+		}
+
+		function reset_matrix(){
+			//reset matrix dots 
+			var x=document.getElementsByClassName("LED_dot");
+			for (var i =0; i <  x.length; i++) {
+		 		x[i].getAttributeNode("src").value="./src/img/led_off.svg";
+		 		x[i].getAttributeNode("onclick").value.replace("on","off");
+			}
+			//reset letter array
+			for(var i=0; i<8; i++){
+				for (var x=0; x<8; x++) {
+					letter[i][x]=0;
+				}
+			}
+		}
+
+		function invert_matrix(){
+			var x=document.getElementsByClassName("LED_dot");
+			//inverse matrix dots
+			for (var i =0; i <  x.length; i++) {
+				if(x[i].getAttributeNode("src").value=="./src/img/led_off.svg"){
+			 		x[i].getAttributeNode("src").value="./src/img/led_on.svg";
+			 		x[i].getAttributeNode("onclick").value.replace("off","on");
+				}else{
+			 		x[i].getAttributeNode("src").value="./src/img/led_off.svg";
+			 		x[i].getAttributeNode("onclick").value.replace("on","off");
+				}
+
+			}
+			//inverse letter array
+			for(var i=0; i<8; i++){
+				for (var x=0; x<8; x++) {
+					if(letter[i][x]) 
+						letter[i][x]=0;
+					else
+						letter[i][x]=1;
+				}
+			}
+
+		}
+
+		function generate_letter(){
+			var letter_name=document.getElementById("letter_name").value;
+
+				//remove all spaces from letter name
+			var letter_name_value=letter_name.replace(/\s/g, "");
+			
+			if(letter_name.value!=""){
+				var output_box=document.getElementById("output_result");
+				output_box.value="";
+				output_box.value+="// Letter declaration: \n";
+				output_box.value+="extern char "+letter_name_value+"[8][8];\n\n";
+				output_box.value+="// Letter definition: \n";
+				output_box.value+="char ";
+				output_box.value+=letter_name_value+"[8][8]";
+				output_box.value+="={\n";
+				for(var i=0; i<8; i++){
+					for (var x=0; x<8; x++) {
+						if(x == 0) output_box.value+="{";
+						output_box.value+=letter[i][x];
+						if(x != 7) output_box.value+=",";
+					}
+					output_box.value+="}";
+					if(i != 7) output_box.value+=",\n";
+					else output_box.value+=" };";
+				}
+			}
+		}
+
+		function copy_letter(){
+			var output_box=document.getElementById("output_result");
+			if(output_box.value!=""){
+				output_box.select();
+				document.execCommand("copy");
+			}
+		}
+
+	</script>
+</body>
+</html>
