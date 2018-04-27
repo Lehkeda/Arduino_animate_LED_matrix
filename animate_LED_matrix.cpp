@@ -4,7 +4,7 @@
 
 Animate_LED_matrix::Animate_LED_matrix(int local_rows[9],int local_cols[9],String user_msg){
 //#ifdef DEBUG
-  Serial.begin(9600);
+//  Serial.begin(9600);
 //#endif  
 
 //copy cols&rows pins numbers from user array to our local copy

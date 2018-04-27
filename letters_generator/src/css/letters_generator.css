@@ -1,0 +1,21 @@
+/* 
+	Letters generator for LED matrix web app
+	This app is part of animate LED matrix 
+	Designed and coded by Hesham El-sewify (Lehkeda)
+	https://www.facebook.com/H.ElSewify
+	https://github.com/Lehkeda
+	27 April 2018
+ */
+ .LED_dot{
+	height: 25px;
+	width: 25px;
+	margin: 0px 0px;
+}
+
+.LEDs_matrix{
+	width: 250px;
+	min-width: 250px;
+}
+.site_title{
+	border-bottom: 2px solid #BDBDBD;
+}
