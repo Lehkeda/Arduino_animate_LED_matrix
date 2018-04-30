@@ -4,16 +4,16 @@
 
 class Animate_LED_matrix{
   public:
-    Animate_LED_matrix(int local_rows[9],int local_cols[9],String);
+    Animate_LED_matrix(char local_rows[9],char local_cols[9],String);
     int global_delay;
     void loop_animation();
     String user_msg;
 
   private:
-    int rows[9];
-    int cols[9];
-    int num_of_rows;
-    int num_of_cols;
+    char rows[9];
+    char cols[9];
+    char num_of_rows;
+    char num_of_cols;
     char letter_to_print[8][8];
     char next_letter_to_print[8][8];
     bool get_next_letter=true;

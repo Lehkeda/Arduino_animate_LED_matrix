@@ -1,8 +1,9 @@
 #include "Animate_LED_matrix.h"
-#include "user_string.h"
+#include "user_letters.h"
+#include "user_custom_letters.h"
 //#define DEBUG
 
-Animate_LED_matrix::Animate_LED_matrix(int local_rows[9],int local_cols[9],String user_msg){
+Animate_LED_matrix::Animate_LED_matrix(char local_rows[9],char local_cols[9],String user_msg){
 //#ifdef DEBUG
 //  Serial.begin(9600);
 //#endif  
@@ -65,14 +66,35 @@ void Animate_LED_matrix::copy_letter(char letter_to_copy[8][8]){
 void Animate_LED_matrix::get_letter(String letter_to_get){
     if(letter_to_get=="a"){this->copy_letter(letter_a);}
     if(letter_to_get=="b"){this->copy_letter(letter_b);}
-    if(letter_to_get=="p"){this->copy_letter(letter_p);}
-    if(letter_to_get=="y"){this->copy_letter(letter_y);}
+    if(letter_to_get=="c"){this->copy_letter(letter_c);}
+    if(letter_to_get=="d"){this->copy_letter(letter_d);}
+    if(letter_to_get=="e"){this->copy_letter(letter_e);}
+    if(letter_to_get=="f"){this->copy_letter(letter_f);}
+    if(letter_to_get=="g"){this->copy_letter(letter_g);}
     if(letter_to_get=="h"){this->copy_letter(letter_h);}
+    if(letter_to_get=="i"){this->copy_letter(letter_i);}
+    if(letter_to_get=="j"){this->copy_letter(letter_j);}
+    if(letter_to_get=="k"){this->copy_letter(letter_k);}
+    if(letter_to_get=="l"){this->copy_letter(letter_l);}
+    if(letter_to_get=="m"){this->copy_letter(letter_m);}
+    if(letter_to_get=="n"){this->copy_letter(letter_n);}
+    if(letter_to_get=="o"){this->copy_letter(letter_o);}
+    if(letter_to_get=="p"){this->copy_letter(letter_p);}
+    if(letter_to_get=="q"){this->copy_letter(letter_q);}
+    if(letter_to_get=="r"){this->copy_letter(letter_r);}
+    if(letter_to_get=="s"){this->copy_letter(letter_s);}
+    if(letter_to_get=="t"){this->copy_letter(letter_t);}
+    if(letter_to_get=="u"){this->copy_letter(letter_u);}
+//    if(letter_to_get=="v"){this->copy_letter(letter_v);}
+//    if(letter_to_get=="w"){this->copy_letter(letter_w);}
+//    if(letter_to_get=="x"){this->copy_letter(letter_x);}
+//    if(letter_to_get=="y"){this->copy_letter(letter_y);}
+//    if(letter_to_get=="z"){this->copy_letter(letter_z);}
 }
 
 void Animate_LED_matrix::get_custom_letter(String letter_to_get){
-    if(letter_to_get=="heart"){this->copy_letter(heart);}
-    if(letter_to_get=="smiley"){this->copy_letter(smiley);}
+//    if(letter_to_get=="heart"){this->copy_letter(heart);}
+//    if(letter_to_get=="smiley"){this->copy_letter(smiley);}
 }
 
 void Animate_LED_matrix::parse_msg(int index){
@@ -293,13 +315,14 @@ void Animate_LED_matrix::loop_animation() {
 #endif
 
 //this get first letter of the text once to start animating the text
-  if(this->current_letter == this->user_msg.length()-1){
-    this->get_next_letter=true;
+  if(this->current_letter == this->user_msg.length()-1 && this->current_base==7){
     this->parse_msg(0);
+    this->get_next_letter=true;
+    this->parse_msg(1);
     this->get_next_letter=false;
     //this->current_letter=0;
     //this->current_base=0;
-  }else if(this->current_letter < this->user_msg.length()-1){
+  }else if(this->current_letter < this->user_msg.length()){
     this->parse_msg(this->current_letter);
     this->get_next_letter=true;
     this->parse_msg((this->is_there_next_letter? this->current_letter+1 : 0));
