@@ -77,18 +77,16 @@ function generate_letter(){
 		var output_box=document.getElementById("output_result");
 		output_box.value="";
 		output_box.value+="// Letter declaration: \n";
-		output_box.value+="extern char "+letter_name_value+"[8][8];\n\n";
+		output_box.value+="extern char "+letter_name_value+"[8];\n\n";
 		output_box.value+="// Letter definition: \n";
 		output_box.value+="char ";
-		output_box.value+=letter_name_value+"[8][8]";
+		output_box.value+=letter_name_value+"[8]";
 		output_box.value+="={\n";
 		for(var i=0; i<8; i++){
 			for (var x=0; x<8; x++) {
-				if(x == 0) output_box.value+="{";
+				if(x == 0) output_box.value+="0b";
 				output_box.value+=letter[i][x];
-				if(x != 7) output_box.value+=",";
 			}
-			output_box.value+="}";
 			if(i != 7) output_box.value+=",\n";
 			else output_box.value+=" };";
 		}
